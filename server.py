@@ -5,6 +5,9 @@ from clientToServer_pb2 import *
 import random
 result = []
 
+user_dict = {}
+addr = ''
+
 
 class Server(object):
 
@@ -37,19 +40,21 @@ class Server(object):
             local = Local()
             try:
                 local.ParseFromString(data)
+                user_dict[local.name] = local
             except:
                 True
 
             print('来自客户端：', local)
-
-            another = Another()
-            another.pos_x = random.uniform(-100, 100)
-            another.pos_y = random.uniform(-100, 100)
-            another.pos_z = random.uniform(-100, 100)
-            another.rot_x = random.uniform(-100, 100)
-            another.rot_y = random.uniform(-100, 100)
-            another.rot_z = random.uniform(-100, 100)
-            data = another.SerializeToString()
+            for key in user_dict:
+                if key != local.name:
+                    another = Another()
+                    another.pos_x = user_dict[key].pos_x
+                    another.pos_y = user_dict[key].pos_y
+                    another.pos_z = user_dict[key].pos_z
+                    another.rot_x = user_dict[key].rot_x
+                    another.rot_y = user_dict[key].rot_y
+                    another.rot_z = user_dict[key].rot_z
+                    data = another.SerializeToString()
 
             conn.send(data)
         else:
