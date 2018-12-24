@@ -33,12 +33,15 @@ class Server(object):
     def read(self, conn, mask):
         data = conn.recv(1024)  # 就绪，等待接收数据
         if data:  # 判断是否有数据过来，有就执行
-            # 注释掉的部分是和csharp做交互的
-            # data = data.decode("ascii")
+
             local = Local()
+            try:
+                local.ParseFromString(data)
+            except:
+                True
 
             print('来自客户端：', local)
-            # conn.send(data.encode("ascii"))
+
             another = Another()
             another.pos_x = random.uniform(-100, 100)
             another.pos_y = random.uniform(-100, 100)
