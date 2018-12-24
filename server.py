@@ -1,5 +1,9 @@
 import socket
 import selectors
+from serverToClient_pb2 import *
+from clientToServer_pb2 import *
+import random
+result = []
 
 
 class Server(object):
@@ -29,9 +33,22 @@ class Server(object):
     def read(self, conn, mask):
         data = conn.recv(1024)  # 就绪，等待接收数据
         if data:  # 判断是否有数据过来，有就执行
-            data = data.decode("ascii")
-            print('来自客户端：', data)
-            conn.send(data.encode("ascii"))
+            # 注释掉的部分是和csharp做交互的
+            # data = data.decode("ascii")
+            local = Local()
+
+            print('来自客户端：', local)
+            # conn.send(data.encode("ascii"))
+            another = Another()
+            another.pos_x = random.uniform(-100, 100)
+            another.pos_y = random.uniform(-100, 100)
+            another.pos_z = random.uniform(-100, 100)
+            another.rot_x = random.uniform(-100, 100)
+            another.rot_y = random.uniform(-100, 100)
+            another.rot_z = random.uniform(-100, 100)
+            data = another.SerializeToString()
+
+            conn.send(data)
         else:
             print('准备关闭连接', conn)
             sel.unregister(conn)
@@ -42,6 +59,6 @@ if __name__ == '__main__':
     sel = selectors.DefaultSelector()  # 默认的选择方式
     sock = socket.socket()
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    host, port = '127.0.0.1', 8080
+    host, port = '127.0.0.1', 1234
     server_obj = Server(sel, sock)
     server_obj.run(host, port)

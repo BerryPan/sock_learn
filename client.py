@@ -1,11 +1,14 @@
 import socket
 import selectors
 import random
+from serverToClient_pb2 import *
+from clientToServer_pb2 import *
 
 sel = selectors.DefaultSelector()
 
 
 def write(sock):
+
     sock.send(str(random.randint(0, 99)).encode('utf-8'))  # 发送必须是一个byts的数据,需要转码
     sel.unregister(sock)  # 当发送成功后必须取消注册,用与接下来的接收(读)到数据的注册
     sel.register(sock, selectors.EVENT_READ, read)  # 注册一个读的事件
@@ -23,7 +26,7 @@ def read(sock):
 for i in range(100):  # 开1000个客户端测试
     client = socket.socket()
     client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # 防止编辑器的每次运行端口冲突问题
-    client.connect(('101.132.135.198', 1234))
+    client.connect(('127.0.0.1', 1234))
     sel.register(client, selectors.EVENT_WRITE, write)  # 注册一个写的事件,接下来处理发送(写)事件的处理
 
 while True:
