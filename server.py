@@ -21,7 +21,7 @@ class Server(object):
 
     def accept(self, sock, mask):
         conn, addr = sock.accept()  # 已经就绪，等待接收
-        print('连接来自于{}'.format(addr))
+        print('连接来自于{0}'.format(addr))
         conn.setblocking(False)
         # sock.send(str('thanks').decode())
         sel.register(conn, selectors.EVENT_READ, self.read)  # 注册事件
@@ -29,8 +29,9 @@ class Server(object):
     def read(self, conn, mask):
         data = conn.recv(1024)  # 就绪，等待接收数据
         if data:  # 判断是否有数据过来，有就执行
+            data = data.decode("ascii")
             print('来自客户端：', data)
-            conn.send(data)
+            conn.send(data.encode("ascii"))
         else:
             print('准备关闭连接', conn)
             sel.unregister(conn)

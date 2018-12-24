@@ -20,10 +20,10 @@ def read(sock):
     print('receiver server %s' % data)
 
 
-for i in range(1000):  # 开1000个客户端测试
+for i in range(100):  # 开1000个客户端测试
     client = socket.socket()
     client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # 防止编辑器的每次运行端口冲突问题
-    client.connect(('localhost', 8080))
+    client.connect(('101.132.135.198', 1234))
     sel.register(client, selectors.EVENT_WRITE, write)  # 注册一个写的事件,接下来处理发送(写)事件的处理
 
 while True:
