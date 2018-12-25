@@ -19,49 +19,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='serverToClient.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x14serverToClient.proto\"\"\n\x04\x42oss\x12\n\n\x02hp\x18\x01 \x01(\x05\x12\x0e\n\x06\x61ttack\x18\x02 \x01(\x05\"o\n\x07\x41nother\x12\r\n\x05pos_x\x18\x01 \x01(\x02\x12\r\n\x05pos_y\x18\x02 \x01(\x02\x12\r\n\x05pos_z\x18\x03 \x01(\x02\x12\r\n\x05rot_x\x18\x04 \x01(\x02\x12\r\n\x05rot_y\x18\x05 \x01(\x02\x12\r\n\x05rot_z\x18\x06 \x01(\x02\x12\n\n\x02hp\x18\x07 \x01(\x05\x62\x06proto3')
+  serialized_pb=_b('\n\x14serverToClient.proto\"\x9e\x01\n\x07\x41nother\x12\x0c\n\x04name\x18\n \x01(\t\x12\r\n\x05pos_x\x18\x01 \x01(\x02\x12\r\n\x05pos_y\x18\x02 \x01(\x02\x12\r\n\x05pos_z\x18\x03 \x01(\x02\x12\r\n\x05rot_x\x18\x04 \x01(\x02\x12\r\n\x05rot_y\x18\x05 \x01(\x02\x12\r\n\x05rot_z\x18\x06 \x01(\x02\x12\n\n\x02hp\x18\x07 \x01(\x05\x12\x0f\n\x07\x62oss_hp\x18\x08 \x01(\x05\x12\x0e\n\x06target\x18\t \x01(\x05\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
-
-
-_BOSS = _descriptor.Descriptor(
-  name='Boss',
-  full_name='Boss',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='hp', full_name='Boss.hp', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='attack', full_name='Boss.attack', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=24,
-  serialized_end=58,
-)
 
 
 _ANOTHER = _descriptor.Descriptor(
@@ -72,50 +34,71 @@ _ANOTHER = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='pos_x', full_name='Another.pos_x', index=0,
+      name='name', full_name='Another.name', index=0,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pos_x', full_name='Another.pos_x', index=1,
       number=1, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pos_y', full_name='Another.pos_y', index=1,
+      name='pos_y', full_name='Another.pos_y', index=2,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='pos_z', full_name='Another.pos_z', index=2,
+      name='pos_z', full_name='Another.pos_z', index=3,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='rot_x', full_name='Another.rot_x', index=3,
+      name='rot_x', full_name='Another.rot_x', index=4,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='rot_y', full_name='Another.rot_y', index=4,
+      name='rot_y', full_name='Another.rot_y', index=5,
       number=5, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='rot_z', full_name='Another.rot_z', index=5,
+      name='rot_z', full_name='Another.rot_z', index=6,
       number=6, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='hp', full_name='Another.hp', index=6,
+      name='hp', full_name='Another.hp', index=7,
       number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='boss_hp', full_name='Another.boss_hp', index=8,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='target', full_name='Another.target', index=9,
+      number=9, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -132,19 +115,11 @@ _ANOTHER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=60,
-  serialized_end=171,
+  serialized_start=25,
+  serialized_end=183,
 )
 
-DESCRIPTOR.message_types_by_name['Boss'] = _BOSS
 DESCRIPTOR.message_types_by_name['Another'] = _ANOTHER
-
-Boss = _reflection.GeneratedProtocolMessageType('Boss', (_message.Message,), dict(
-  DESCRIPTOR = _BOSS,
-  __module__ = 'serverToClient_pb2'
-  # @@protoc_insertion_point(class_scope:Boss)
-  ))
-_sym_db.RegisterMessage(Boss)
 
 Another = _reflection.GeneratedProtocolMessageType('Another', (_message.Message,), dict(
   DESCRIPTOR = _ANOTHER,

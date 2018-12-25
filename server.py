@@ -48,6 +48,7 @@ class Server(object):
             for key in user_dict:
                 if key != local.name:
                     another = Another()
+                    another.name = key
                     another.pos_x = user_dict[key].pos_x
                     another.pos_y = user_dict[key].pos_y
                     another.pos_z = user_dict[key].pos_z
@@ -55,7 +56,7 @@ class Server(object):
                     another.rot_y = user_dict[key].rot_y
                     another.rot_z = user_dict[key].rot_z
                     data = another.SerializeToString()
-
+            
             conn.send(data)
         else:
             print('准备关闭连接', conn)

@@ -19,23 +19,79 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='clientToServer.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x14\x63lientToServer.proto\"\x14\n\x03Hit\x12\r\n\x05isHit\x18\x01 \x01(\x08\"m\n\x05Local\x12\r\n\x05pos_x\x18\x01 \x01(\x02\x12\r\n\x05pos_y\x18\x02 \x01(\x02\x12\r\n\x05pos_z\x18\x03 \x01(\x02\x12\r\n\x05rot_x\x18\x04 \x01(\x02\x12\r\n\x05rot_y\x18\x05 \x01(\x02\x12\r\n\x05rot_z\x18\x06 \x01(\x02\x12\n\n\x02hp\x18\x07 \x01(\x05\x62\x06proto3')
+  serialized_pb=_b('\n\x14\x63lientToServer.proto\"\x8a\x01\n\x05Local\x12\x0c\n\x04name\x18\t \x01(\t\x12\r\n\x05pos_x\x18\x01 \x01(\x02\x12\r\n\x05pos_y\x18\x02 \x01(\x02\x12\r\n\x05pos_z\x18\x03 \x01(\x02\x12\r\n\x05rot_x\x18\x04 \x01(\x02\x12\r\n\x05rot_y\x18\x05 \x01(\x02\x12\r\n\x05rot_z\x18\x06 \x01(\x02\x12\n\n\x02hp\x18\x07 \x01(\x05\x12\r\n\x05isHit\x18\x08 \x01(\x08\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
 
-_HIT = _descriptor.Descriptor(
-  name='Hit',
-  full_name='Hit',
+_LOCAL = _descriptor.Descriptor(
+  name='Local',
+  full_name='Local',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='isHit', full_name='Hit.isHit', index=0,
-      number=1, type=8, cpp_type=7, label=1,
+      name='name', full_name='Local.name', index=0,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pos_x', full_name='Local.pos_x', index=1,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pos_y', full_name='Local.pos_y', index=2,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pos_z', full_name='Local.pos_z', index=3,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='rot_x', full_name='Local.rot_x', index=4,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='rot_y', full_name='Local.rot_y', index=5,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='rot_z', full_name='Local.rot_z', index=6,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='hp', full_name='Local.hp', index=7,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='isHit', full_name='Local.isHit', index=8,
+      number=8, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -52,92 +108,11 @@ _HIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24,
-  serialized_end=44,
+  serialized_start=25,
+  serialized_end=163,
 )
 
-
-_LOCAL = _descriptor.Descriptor(
-  name='Local',
-  full_name='Local',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='pos_x', full_name='Local.pos_x', index=0,
-      number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='pos_y', full_name='Local.pos_y', index=1,
-      number=2, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='pos_z', full_name='Local.pos_z', index=2,
-      number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='rot_x', full_name='Local.rot_x', index=3,
-      number=4, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='rot_y', full_name='Local.rot_y', index=4,
-      number=5, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='rot_z', full_name='Local.rot_z', index=5,
-      number=6, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='hp', full_name='Local.hp', index=6,
-      number=7, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=46,
-  serialized_end=155,
-)
-
-DESCRIPTOR.message_types_by_name['Hit'] = _HIT
 DESCRIPTOR.message_types_by_name['Local'] = _LOCAL
-
-Hit = _reflection.GeneratedProtocolMessageType('Hit', (_message.Message,), dict(
-  DESCRIPTOR = _HIT,
-  __module__ = 'clientToServer_pb2'
-  # @@protoc_insertion_point(class_scope:Hit)
-  ))
-_sym_db.RegisterMessage(Hit)
 
 Local = _reflection.GeneratedProtocolMessageType('Local', (_message.Message,), dict(
   DESCRIPTOR = _LOCAL,
