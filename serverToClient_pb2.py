@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='serverToClient.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x14serverToClient.proto\"\x9e\x01\n\x07\x41nother\x12\x0c\n\x04name\x18\n \x01(\t\x12\r\n\x05pos_x\x18\x01 \x01(\x02\x12\r\n\x05pos_y\x18\x02 \x01(\x02\x12\r\n\x05pos_z\x18\x03 \x01(\x02\x12\r\n\x05rot_x\x18\x04 \x01(\x02\x12\r\n\x05rot_y\x18\x05 \x01(\x02\x12\r\n\x05rot_z\x18\x06 \x01(\x02\x12\n\n\x02hp\x18\x07 \x01(\x05\x12\x0f\n\x07\x62oss_hp\x18\x08 \x01(\x05\x12\x0e\n\x06target\x18\t \x01(\x05\x62\x06proto3')
+  serialized_pb=_b('\n\x14serverToClient.proto\"\x9e\x01\n\x07\x41nother\x12\x0c\n\x04name\x18\n \x01(\t\x12\r\n\x05pos_x\x18\x01 \x01(\x02\x12\r\n\x05pos_y\x18\x02 \x01(\x02\x12\r\n\x05pos_z\x18\x03 \x01(\x02\x12\r\n\x05rot_x\x18\x04 \x01(\x02\x12\r\n\x05rot_y\x18\x05 \x01(\x02\x12\r\n\x05rot_z\x18\x06 \x01(\x02\x12\n\n\x02hp\x18\x07 \x01(\x02\x12\x0f\n\x07\x62oss_hp\x18\x08 \x01(\x05\x12\x0e\n\x06target\x18\t \x01(\x05\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -84,8 +84,8 @@ _ANOTHER = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='hp', full_name='Another.hp', index=7,
-      number=7, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),

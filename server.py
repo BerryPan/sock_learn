@@ -4,8 +4,11 @@ from serverToClient_pb2 import *
 from clientToServer_pb2 import *
 import random
 result = []
+qsf = Another()
+pjm = Another()
+ljn = Another()
 
-user_dict = {}
+
 addr = ''
 
 
@@ -28,38 +31,57 @@ class Server(object):
 
     def accept(self, sock, mask):
         conn, addr = sock.accept()  # 已经就绪，等待接收
-        print('连接来自于{0}'.format(addr))
         conn.setblocking(False)
         # sock.send(str('thanks').decode())
         sel.register(conn, selectors.EVENT_READ, self.read)  # 注册事件
 
     def read(self, conn, mask):
+        global pjm
+        global qsf
+        global ljn
         data = conn.recv(1024)  # 就绪，等待接收数据
         if data:  # 判断是否有数据过来，有就执行
 
             local = Local()
             try:
                 local.ParseFromString(data)
-                user_dict[local.name] = local
+                if local.name == 'qsf':
+                    another = Another()
+                    another.name = 'pjm'
+                    another.pos_x = pjm.pos_x
+                    another.pos_y = pjm.pos_y
+                    another.pos_z = pjm.pos_z
+                    another.rot_x = pjm.rot_x
+                    another.rot_y = pjm.rot_y
+                    another.rot_z = pjm.rot_z
+                    another.hp = pjm.hp
+
+                else:
+                    another = Another()
+                    another.name = 'qsf'
+                    another.pos_x = qsf.pos_x
+                    another.pos_y = qsf.pos_y
+                    another.pos_z = qsf.pos_z
+                    another.rot_x = qsf.rot_x
+                    another.rot_y = qsf.rot_y
+                    another.rot_z = qsf.rot_z
+                    another.hp = qsf.hp
+                data = another.SerializeToString()
+                conn.send(data)
+                print(local)
+                if local.name == 'qsf':
+                    qsf = local
+
+                if local.name == 'pjm':
+                    pjm = local
+
+                if local.name == 'ljn':
+                    ljn = local
+
             except:
                 True
 
-            print('来自客户端：', local)
-            for key in user_dict:
-                if key != local.name:
-                    another = Another()
-                    another.name = key
-                    another.pos_x = user_dict[key].pos_x
-                    another.pos_y = user_dict[key].pos_y
-                    another.pos_z = user_dict[key].pos_z
-                    another.rot_x = user_dict[key].rot_x
-                    another.rot_y = user_dict[key].rot_y
-                    another.rot_z = user_dict[key].rot_z
-                    data = another.SerializeToString()
-            
-            conn.send(data)
-        else:
-            print('准备关闭连接', conn)
+
             sel.unregister(conn)
             conn.close()
 
@@ -68,6 +90,6 @@ if __name__ == '__main__':
     sel = selectors.DefaultSelector()  # 默认的选择方式
     sock = socket.socket()
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    host, port = '127.0.0.1', 1234
+    host, port = '172.19.15.164', 1234
     server_obj = Server(sel, sock)
     server_obj.run(host, port)
